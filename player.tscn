@@ -1,0 +1,145 @@
+[gd_scene load_steps=18 format=3 uid="uid://ctxyj7sor40s2"]
+
+[ext_resource type="Script" path="res://PlayerModel.gd" id="1_8ccy7"]
+[ext_resource type="Script" path="res://Player.gd" id="1_e4lms"]
+[ext_resource type="Texture2D" uid="uid://cx4nlpcqeodt0" path="res://assets/body_idle.png" id="2_it0m0"]
+[ext_resource type="Texture2D" uid="uid://frvro53qv1uf" path="res://assets/body_idle_2.png" id="3_kwtb1"]
+[ext_resource type="Texture2D" uid="uid://0mwkexbia770" path="res://assets/body_jump_1.png" id="4_1xtxk"]
+[ext_resource type="Texture2D" uid="uid://s5qcemxl1q47" path="res://assets/body_jump_2.png" id="5_lcxcq"]
+[ext_resource type="Texture2D" uid="uid://xrcp08xqr8mn" path="res://assets/body_run_1.png" id="6_ayj7h"]
+[ext_resource type="Texture2D" uid="uid://c3310bjn6jum4" path="res://assets/body_run_2.png" id="7_jnve3"]
+[ext_resource type="Texture2D" uid="uid://cvu6dcluqcbos" path="res://assets/body_run_3.png" id="8_3xtrx"]
+[ext_resource type="Texture2D" uid="uid://n8k8bb2de2fb" path="res://assets/body_run_4.png" id="9_qklm8"]
+[ext_resource type="Texture2D" uid="uid://prkmt32g0ksw" path="res://assets/head.png" id="10_y0esi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2g2cy"]
+radius = 6.0
+height = 32.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5twgv"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_it0m0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kwtb1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1xtxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lcxcq")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ayj7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jnve3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3xtrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qklm8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_m8tne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_2iwvj"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_2nycf"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:offset")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(96, 0), Vector2(128, 0), Vector2(96, 0), Vector2(128, 0), Vector2(96, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oaelw"]
+_data = {
+"RESET": SubResource("Animation_m8tne"),
+"idle": SubResource("Animation_2iwvj"),
+"run": SubResource("Animation_2nycf")
+}
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_e4lms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6, 6)
+shape = SubResource("CapsuleShape2D_2g2cy")
+
+[node name="Model" type="Node2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_8ccy7")
+
+[node name="Body" type="AnimatedSprite2D" parent="Model"]
+sprite_frames = SubResource("SpriteFrames_5twgv")
+animation = &"idle"
+
+[node name="Head" type="Sprite2D" parent="Model"]
+position = Vector2(0, -640)
+texture = ExtResource("10_y0esi")
+offset = Vector2(0, 25)
+
+[node name="HeadAnimator" type="AnimationPlayer" parent="Model"]
+libraries = {
+"": SubResource("AnimationLibrary_oaelw")
+}

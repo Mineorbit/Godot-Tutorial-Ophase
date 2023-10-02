@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=3 uid="uid://dhx5aqkfw8raa"]
+
+[ext_resource type="Texture2D" uid="uid://cj18j0bu4bgse" path="res://assets/border.png" id="1_1pksf"]
+[ext_resource type="Script" path="res://GameManager.gd" id="1_a5a8n"]
+[ext_resource type="Texture2D" uid="uid://c6oud5q64b1k1" path="res://assets/border_lower.png" id="2_cpow5"]
+[ext_resource type="PackedScene" uid="uid://ctxyj7sor40s2" path="res://player.tscn" id="3_eumpb"]
+[ext_resource type="Script" path="res://Level.gd" id="4_5l6g6"]
+[ext_resource type="PackedScene" uid="uid://bsgqsgw1y2xut" path="res://Karo5.tscn" id="4_h78hu"]
+
+[sub_resource type="Environment" id="Environment_33fg1"]
+background_mode = 3
+background_color = Color(1, 1, 1, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_amol0"]
+font_names = PackedStringArray("Tahoma")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_fpnfk"]
+font_names = PackedStringArray("Tahoma")
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_i8n6i"]
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/fonts/bold_font = SubResource("SystemFont_amol0")
+RichTextLabel/fonts/normal_font = SubResource("SystemFont_fpnfk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olxuy"]
+
+[sub_resource type="SystemFont" id="SystemFont_vu1sc"]
+font_names = PackedStringArray("Tahoma")
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1rj8"]
+font = SubResource("SystemFont_vu1sc")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_54b02"]
+font_names = PackedStringArray("Tahoma")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jp22b"]
+line_spacing = 32.0
+font = SubResource("SystemFont_54b02")
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_a5a8n")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Env" type="Node2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = SubResource("Environment_33fg1")
+
+[node name="UpperBorder" type="Sprite2D" parent="Env"]
+position = Vector2(577.5, 23)
+scale = Vector2(1.02526, 1)
+texture = ExtResource("1_1pksf")
+
+[node name="LowerBorder" type="Sprite2D" parent="Env"]
+position = Vector2(576, 605)
+scale = Vector2(1.55163, 1)
+texture = ExtResource("2_cpow5")
+
+[node name="Counter" type="RichTextLabel" parent="Env"]
+offset_left = 1103.0
+offset_top = 614.0
+offset_right = 1148.0
+offset_bottom = 640.0
+theme = SubResource("Theme_i8n6i")
+bbcode_enabled = true
+text = "0
+"
+
+[node name="Ground" type="StaticBody2D" parent="Env"]
+position = Vector2(617, 617)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/Ground"]
+position = Vector2(-43, 0)
+scale = Vector2(58.88, 1)
+shape = SubResource("RectangleShape2D_olxuy")
+
+[node name="Level" type="AnimatableBody2D" parent="Env"]
+script = ExtResource("4_5l6g6")
+
+[node name="Karo5" parent="Env/Level" instance=ExtResource("4_h78hu")]
+position = Vector2(1416, 427)
+
+[node name="Entities" type="Node2D" parent="Env"]
+
+[node name="Player" parent="Env/Entities" instance=ExtResource("3_eumpb")]
+position = Vector2(110, 509)
+
+[node name="LowerBorder2" type="Sprite2D" parent="Env"]
+position = Vector2(576, 169)
+scale = Vector2(1.55163, 1)
+texture = ExtResource("2_cpow5")
+
+[node name="Title" type="Label" parent="Env"]
+offset_left = 15.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 169.0
+text = "\"Die Uni Experience\""
+label_settings = SubResource("LabelSettings_b1rj8")
+vertical_alignment = 1
+
+[node name="TitleSub" type="Label" parent="Env/Title"]
+layout_mode = 0
+offset_top = 47.0
+offset_right = 1138.0
+offset_bottom = 217.0
+text = "Drücke Linke Maustaste zum starten, Leertaste zum Springen!"
+label_settings = SubResource("LabelSettings_jp22b")
+vertical_alignment = 1

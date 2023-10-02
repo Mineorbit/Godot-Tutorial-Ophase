@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsgqsgw1y2xut"]
+
+[ext_resource type="Texture2D" uid="uid://ceps5ij3iae7t" path="res://assets/karo5.jpg" id="1_kcdy7"]
+
+[node name="Karo5" type="CollisionPolygon2D"]
+build_mode = 1
+polygon = PackedVector2Array(-265, 176, 263, 177, 263, 130, 121, 126, 123, 22, 226, -2, 126, -90, -75, -51, -225, 25, -224, 84, -265, 81)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_kcdy7")
