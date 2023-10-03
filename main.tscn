@@ -92,6 +92,7 @@ position = Vector2(1416, 427)
 
 [node name="Player" parent="Env/Entities" instance=ExtResource("3_eumpb")]
 position = Vector2(110, 509)
+levelPath = NodePath("../../Level")
 
 [node name="LowerBorder2" type="Sprite2D" parent="Env"]
 position = Vector2(576, 169)

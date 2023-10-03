@@ -13,7 +13,7 @@ func set_animation(state):
 		headAnimator.play("run")
 		bodyAnimation.play("run")
 	if(state == 2):
-		headAnimator.play("run")
+		headAnimator.play("jump")
 		bodyAnimation.play("jump")
 
 func _ready():
