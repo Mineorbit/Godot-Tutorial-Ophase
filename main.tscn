@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dhx5aqkfw8raa"]
+[gd_scene load_steps=20 format=3 uid="uid://dhx5aqkfw8raa"]
 
 [ext_resource type="Texture2D" uid="uid://cj18j0bu4bgse" path="res://assets/border.png" id="1_1pksf"]
 [ext_resource type="Script" path="res://GameManager.gd" id="1_a5a8n"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d4fliw207y41t" path="res://AtheneKarte.tscn" id="6_fxccu"]
 [ext_resource type="PackedScene" uid="uid://cstnfb4nk2jhc" path="res://Hochschulstadion.tscn" id="7_7ufch"]
 [ext_resource type="PackedScene" uid="uid://dqim3lxjhla31" path="res://Parkhaus.tscn" id="8_808jq"]
+[ext_resource type="PackedScene" uid="uid://28lqpyeios4f" path="res://Killzone.tscn" id="10_3mfbs"]
 
 [sub_resource type="Environment" id="Environment_33fg1"]
 background_mode = 3
@@ -130,7 +131,7 @@ position = Vector2(3404, 481)
 [node name="Entities" type="Node2D" parent="Env"]
 
 [node name="Player" parent="Env/Entities" instance=ExtResource("3_eumpb")]
-position = Vector2(110, 509)
+position = Vector2(110, 510)
 levelPath = NodePath("../../Level")
 
 [node name="LowerBorder2" type="Sprite2D" parent="Env"]
@@ -155,3 +156,11 @@ offset_bottom = 217.0
 text = "Drücke Linke Maustaste zum starten, Leertaste zum Springen!"
 label_settings = SubResource("LabelSettings_jp22b")
 vertical_alignment = 1
+
+[node name="Killzone" parent="Env" instance=ExtResource("10_3mfbs")]
+mainPath = NodePath("../..")
+
+[node name="Killzone2" parent="Env" instance=ExtResource("10_3mfbs")]
+position = Vector2(584, 672)
+scale = Vector2(63.32, 0.12)
+mainPath = NodePath("../..")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc4witsqaprbk"]
+
+[sub_resource type="SystemFont" id="SystemFont_vu1sc"]
+font_names = PackedStringArray("Tahoma")
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1rj8"]
+font = SubResource("SystemFont_vu1sc")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="Label"]
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 647.0
+text = "Game Over
+Drücke linke Maustaste um neu zustarten!"
+label_settings = SubResource("LabelSettings_b1rj8")
+horizontal_alignment = 1
+vertical_alignment = 1
