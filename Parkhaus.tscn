@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqim3lxjhla31"]
+
+[ext_resource type="Texture2D" uid="uid://cdw2knbe0w5rd" path="res://assets/Mathebau.png" id="1_tefh4"]
+
+[node name="Parkhaus" type="CollisionPolygon2D"]
+build_mode = 1
+polygon = PackedVector2Array(-266, 43, -223, 34, -222, 8, -197, 9, -196, -5, -206, -5, -206, -11, -197, -11, -198, -33, -207, -43, -139, -63, -104, -51, 30, -81, 44, -47, 196, -64, 197, -52, 259, -50, 260, 1, 238, 3, 236, 124, -266, 123)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_tefh4")

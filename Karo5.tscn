@@ -4,7 +4,7 @@
 
 [node name="Karo5" type="CollisionPolygon2D"]
 build_mode = 1
-polygon = PackedVector2Array(-265, 176, 263, 177, 263, 130, 121, 126, 123, 22, 226, -2, 126, -90, -75, -51, -225, 25, -224, 84, -265, 81)
+polygon = PackedVector2Array(263, 129, 121, 126, 123, 24, 227, 8, 226, -5, 127, -92, -26, -33, -75, -51, -225, 25, -224, 84, -265, 81, -266, 176, 263, 176)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.45, 0.45)

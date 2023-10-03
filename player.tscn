@@ -150,7 +150,7 @@ script = ExtResource("1_8ccy7")
 [node name="Body" type="AnimatedSprite2D" parent="Model"]
 sprite_frames = SubResource("SpriteFrames_5twgv")
 animation = &"jump"
-frame_progress = 0.0713992
+frame_progress = 0.477215
 
 [node name="Head" type="Sprite2D" parent="Model"]
 position = Vector2(-90, -650)

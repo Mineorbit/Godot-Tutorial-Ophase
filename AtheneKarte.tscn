@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4fliw207y41t"]
+
+[ext_resource type="Texture2D" uid="uid://bioj4g66f6dfu" path="res://assets/ak_dummy.jpg" id="1_1uw7q"]
+[ext_resource type="Texture2D" uid="uid://cgstqumpphto" path="res://assets/mask.png" id="1_f87sc"]
+
+[node name="AtheneKarte" type="CollisionPolygon2D"]
+build_mode = 1
+polygon = PackedVector2Array(-265, -167, 265, -167, 262, 164, -265, 164)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.960451, 0.6526)
+texture = ExtResource("1_f87sc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_1uw7q")

@@ -1,6 +1,6 @@
 extends AnimatableBody2D
 
-var scrolling = true
+var scrolling = false
 
 var scroll_speed = 128
 

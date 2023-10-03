@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dhx5aqkfw8raa"]
+[gd_scene load_steps=18 format=3 uid="uid://dhx5aqkfw8raa"]
 
 [ext_resource type="Texture2D" uid="uid://cj18j0bu4bgse" path="res://assets/border.png" id="1_1pksf"]
 [ext_resource type="Script" path="res://GameManager.gd" id="1_a5a8n"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ctxyj7sor40s2" path="res://player.tscn" id="3_eumpb"]
 [ext_resource type="Script" path="res://Level.gd" id="4_5l6g6"]
 [ext_resource type="PackedScene" uid="uid://bsgqsgw1y2xut" path="res://Karo5.tscn" id="4_h78hu"]
+[ext_resource type="PackedScene" uid="uid://d4fliw207y41t" path="res://AtheneKarte.tscn" id="6_fxccu"]
+[ext_resource type="PackedScene" uid="uid://cstnfb4nk2jhc" path="res://Hochschulstadion.tscn" id="7_7ufch"]
 
 [sub_resource type="Environment" id="Environment_33fg1"]
 background_mode = 3
@@ -74,19 +76,37 @@ bbcode_enabled = true
 text = "0
 "
 
-[node name="Ground" type="StaticBody2D" parent="Env"]
+[node name="Level" type="AnimatableBody2D" parent="Env"]
+position = Vector2(13, 2)
+script = ExtResource("4_5l6g6")
+
+[node name="Karo5" parent="Env/Level" instance=ExtResource("4_h78hu")]
+position = Vector2(1418, 425)
+
+[node name="AtheneKarte" parent="Env/Level" instance=ExtResource("6_fxccu")]
+position = Vector2(2184, 765)
+rotation = 1.56727
+
+[node name="Ground" type="StaticBody2D" parent="Env/Level"]
 position = Vector2(617, 617)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/Ground"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/Level/Ground"]
 position = Vector2(-43, 0)
 scale = Vector2(58.88, 1)
 shape = SubResource("RectangleShape2D_olxuy")
 
-[node name="Level" type="AnimatableBody2D" parent="Env"]
-script = ExtResource("4_5l6g6")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Env/Level/Ground"]
+position = Vector2(631, -2)
+scale = Vector2(58.88, 1)
+shape = SubResource("RectangleShape2D_olxuy")
 
-[node name="Karo5" parent="Env/Level" instance=ExtResource("4_h78hu")]
-position = Vector2(1416, 427)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Env/Level/Ground"]
+position = Vector2(2536, 0)
+scale = Vector2(58.88, 1)
+shape = SubResource("RectangleShape2D_olxuy")
+
+[node name="AtheneKarte2" parent="Env/Level" instance=ExtResource("7_7ufch")]
+position = Vector2(7398, 275)
 
 [node name="Entities" type="Node2D" parent="Env"]
 
