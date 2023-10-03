@@ -1,11 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://cstnfb4nk2jhc"]
 
-[ext_resource type="Texture2D" uid="uid://b78dh6n8doitx" path="res://assets/TU_Darmstadt_Hochschulstadion.jpg" id="1_2dxhn"]
+[ext_resource type="Texture2D" uid="uid://dlayiwtp3ynkv" path="res://assets/TU_Darmstadt_Hochschulstadion.png" id="1_0hhwf"]
 
-[node name="AtheneKarte" type="CollisionPolygon2D"]
+[node name="Hochschulstadion" type="CollisionPolygon2D"]
+position = Vector2(62, -178)
 build_mode = 1
-polygon = PackedVector2Array(-265, -167, 265, -167, 262, 164, -265, 164)
+polygon = PackedVector2Array(-305, -6, 301, -10, 290, 2, 289, 27, -293, 34, -293, 7)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("1_2dxhn")
+position = Vector2(0, 18)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("1_0hhwf")

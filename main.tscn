@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dhx5aqkfw8raa"]
+[gd_scene load_steps=19 format=3 uid="uid://dhx5aqkfw8raa"]
 
 [ext_resource type="Texture2D" uid="uid://cj18j0bu4bgse" path="res://assets/border.png" id="1_1pksf"]
 [ext_resource type="Script" path="res://GameManager.gd" id="1_a5a8n"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bsgqsgw1y2xut" path="res://Karo5.tscn" id="4_h78hu"]
 [ext_resource type="PackedScene" uid="uid://d4fliw207y41t" path="res://AtheneKarte.tscn" id="6_fxccu"]
 [ext_resource type="PackedScene" uid="uid://cstnfb4nk2jhc" path="res://Hochschulstadion.tscn" id="7_7ufch"]
+[ext_resource type="PackedScene" uid="uid://dqim3lxjhla31" path="res://Parkhaus.tscn" id="8_808jq"]
 
 [sub_resource type="Environment" id="Environment_33fg1"]
 background_mode = 3
@@ -105,8 +106,26 @@ position = Vector2(2536, 0)
 scale = Vector2(58.88, 1)
 shape = SubResource("RectangleShape2D_olxuy")
 
-[node name="AtheneKarte2" parent="Env/Level" instance=ExtResource("7_7ufch")]
-position = Vector2(7398, 275)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Env/Level/Ground"]
+position = Vector2(3708, 0)
+scale = Vector2(58.88, 1)
+shape = SubResource("RectangleShape2D_olxuy")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Env/Level/Ground"]
+position = Vector2(4886, 0)
+scale = Vector2(58.88, 1)
+shape = SubResource("RectangleShape2D_olxuy")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Env/Level/Ground"]
+position = Vector2(6065, 0)
+scale = Vector2(58.88, 1)
+shape = SubResource("RectangleShape2D_olxuy")
+
+[node name="Hochschulstadion" parent="Env/Level" instance=ExtResource("7_7ufch")]
+position = Vector2(5828, 379)
+
+[node name="Parkhaus" parent="Env/Level" instance=ExtResource("8_808jq")]
+position = Vector2(3404, 481)
 
 [node name="Entities" type="Node2D" parent="Env"]
 
