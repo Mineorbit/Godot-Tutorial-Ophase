@@ -25,7 +25,6 @@ func _physics_process(delta):
 		# TUTORIAL CODE
 		speed = ((position.x - level.position.x) - last_dif)/delta
 		last_dif = (position.x - level.position.x)
-		print(speed)
 		if(contact):
 			if(speed > 5):
 				model.set_animation(1)
