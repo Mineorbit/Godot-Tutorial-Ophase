@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ctxyj7sor40s2"]
+[gd_scene load_steps=20 format=3 uid="uid://ctxyj7sor40s2"]
 
 [ext_resource type="Script" path="res://PlayerModel.gd" id="1_8ccy7"]
 [ext_resource type="Script" path="res://Player.gd" id="1_e4lms"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cvu6dcluqcbos" path="res://assets/body_run_3.png" id="8_3xtrx"]
 [ext_resource type="Texture2D" uid="uid://n8k8bb2de2fb" path="res://assets/body_run_4.png" id="9_qklm8"]
 [ext_resource type="Texture2D" uid="uid://prkmt32g0ksw" path="res://assets/head.png" id="10_y0esi"]
+[ext_resource type="AudioStream" uid="uid://w726g0rptk0n" path="res://assets/sprung.mp3" id="12_1xhvn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2g2cy"]
 radius = 6.0
@@ -161,3 +162,8 @@ offset = Vector2(0, 25)
 libraries = {
 "": SubResource("AnimationLibrary_oaelw")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_1xhvn")
+
+[connection signal="spring_Signal" from="." to="AudioStreamPlayer2D" method="play"]

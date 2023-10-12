@@ -11,6 +11,8 @@ var vertical_velocity = 0
 var last_dif = 0
 var speed = 0
 
+signal spring_Signal
+
 
 func _physics_process(delta):
 	if(level.scrolling):
@@ -38,6 +40,7 @@ func _physics_process(delta):
 
 
 func jump():
+	spring_Signal.emit()
 	model.set_animation(2)
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	vertical_velocity = 6*100
